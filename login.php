@@ -60,13 +60,6 @@
         </div>
         <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit-in" value="Submit">
       </form>
-
-<?php
-
- echo $msg;
-
-?>
-
     </div> <!-- /container -->
 
 
