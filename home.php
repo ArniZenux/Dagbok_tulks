@@ -1,7 +1,10 @@
 <?php
-
-echo 'Home.php';
-
+session_start();
+include('connection.php');
+echo '<br>Home.php<br>';
+echo $_SESSION['Nafn'];
+echo '<br>';
+echo $_SESSION['Netfang'];
 ?>
 
 <!DOCTYPE html>

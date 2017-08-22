@@ -17,7 +17,8 @@
   $row = mysqli_fetch_array($result);
   
   if(mysqli_num_rows($result) == 1){
-    $_SESSION['notandi'] = $row['Name'];
+    $_SESSION['Nafn'] = $row['Name'];
+    $_SESSION['Netfang'] = $row['Email'];
     header("Location: home.php"); 
   }
   else{
