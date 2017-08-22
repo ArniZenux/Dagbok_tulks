@@ -4,12 +4,15 @@
   $pass      = "arni";
   $db_name   = "dbaseTulkurSHH";
 
-  $connection = new mysqli($localhost,$user,$pass,$db_name);
-
-  if($connection->connect_error){
-     die("Error : -> ".$connection->connect_error);
+  $conn = mysqli_connect($localhost,$user,$pass,$db_name);
+ /*
+  if($conn->connect_error){
+     die("Error : -> ".$conn->connect_error);
   }
   else{
   	echo 'connection';
+  }*/
+  if($conn){
+    echo 'Connection';
   }  
 ?>
