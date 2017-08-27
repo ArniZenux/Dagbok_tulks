@@ -13,9 +13,9 @@
 
   $sql = "SELECT ID, Name, Email , Password FROM tblNotandi WHERE Name='$name' AND Password='$pass';";
   
-  mysqli_query ('SET NAMES UTF8;');
-  mysqli_query ('SET COLLATION_CONNECTION=utf8_icelandic_ci;');
-  mysqli_client_encoding($conn);
+  //mysqli_query ('SET NAMES UTF8;');
+  //mysqli_query ('SET COLLATION_CONNECTION=utf8_icelandic_ci;');
+  //mysqli_client_encoding($conn);
 
   $result = mysqli_query($conn,$sql);
   $row = mysqli_fetch_array($result);
@@ -54,7 +54,7 @@ $conn->close();
     <div class="container">
 
       <form method="POST" action="" class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Dagbók táknmálstúlks</h2>
         <label for="inputEmail" class="sr-only">Notandi</label>
         <input type="text" id="inputEmail" class="form-control" placeholder="Notandi" name="username">
         <label for="inputPassword" class="sr-only">Password</label>
