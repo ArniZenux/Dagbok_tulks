@@ -16,32 +16,62 @@ echo '<br>';
 echo 'Name: '.$name;
 
 echo '<hr>';
-
-$sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni_isl WHERE ID='$id';";
-//$sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni;";
-//$sql = "SELECT ID, Name, Email , Password FROM tblNotandi;";
-$result = mysqli_query($conn,$sql);
-if(!$result){
-	echo 'ekki samband';
-}
-
-while($row = mysqli_fetch_array($result) ){
-  echo $row[0].'<br>';
-  echo $row[1];
-  //echo $Nafn_heiti;
-}
-
-$conn->close(); 
-
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="is">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+	<meta charset="utf-8">
 	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+       <!-- Bootstrap core CSS -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
+ <table class="table">
+  <thead>
+  <tr>
+  <th>#</th>
+  <th>Verkefni</th>
+  <th>Staður</th>
+  <th>Dagur</th>
+  <th>Byrja</th>
+  <th>Endir</th>
+  </tr>
+  </thead>
+  <tbody>
+<?php
+$sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni_isl WHERE ID='$id';";
+$result = mysqli_query($conn,$sql);
+mysqli_query ('SET NAMES UTF8;');
+mysqli_query ('SET COLLATION_CONNECTION=utf8_icelandic_ci;');
+
+if(!$result){
+	echo 'ekki samband';
+}
+while($row = mysqli_fetch_array($result) ){
+  echo '<tr class="bg-danger">';
+  echo  '<th scope="row">1</th>';
+  echo  '<td>'.$row[0].'</td>';
+  echo  '<td>'.$row[1].'</td>';
+  echo  '<td>'.$row[2].'</td>';
+  echo  '<td>'.$row[3].'</td>';
+  echo  '<td>'.$row[4].'</td>';
+  echo '</tr>';
+
+}
+$conn->close(); 
+?>
+  </tbody>
+</table>
+
 <br><a href="logout.php">Logout</a>
+</div>
 </body>
 </html>
