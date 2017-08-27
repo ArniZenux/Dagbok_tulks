@@ -12,11 +12,16 @@
   echo '<br>'.$name ." og ". $pass;
 
   $sql = "SELECT ID, Name, Email , Password FROM tblNotandi WHERE Name='$name' AND Password='$pass';";
- 
+  
+  mysqli_query ('SET NAMES UTF8;');
+  mysqli_query ('SET COLLATION_CONNECTION=utf8_icelandic_ci;');
+  mysqli_client_encoding($conn);
+
   $result = mysqli_query($conn,$sql);
   $row = mysqli_fetch_array($result);
   
   if(mysqli_num_rows($result) == 1){
+    $_SESSION['Id'] = $row['ID'];
     $_SESSION['Nafn'] = $row['Name'];
     $_SESSION['Netfang'] = $row['Email'];
     header("Location: home.php"); 
@@ -25,11 +30,11 @@
     echo '<br>Ekki rett';
   }
  }
- $conn->close(); 
- 
+$conn->close(); 
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
