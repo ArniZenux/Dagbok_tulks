@@ -1,36 +1,32 @@
 <?php
  session_start();
  include("connection.php");
+ //include("login.php");
  
+ $msg = '<br>';
+
  if(isset($_POST['submit-in'])){
-  $name = $_POST['username'];
-  $pass = $_POST['password'];
+    $name = $_POST['username'];
+    $pass = $_POST['password'];
+    $name = stripcslashes($name);
+    $pass = stripcslashes($pass);
+   
+    $sql = "SELECT ID, Name, Email FROM tblNotandi WHERE Name='$name' AND Password='$pass';";
   
-  $name = stripcslashes($name);
-  $pass = stripcslashes($pass);
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($result);
   
-  echo '<br>'.$name ." og ". $pass;
-
-  $sql = "SELECT ID, Name, Email , Password FROM tblNotandi WHERE Name='$name' AND Password='$pass';";
-  
-  mysqli_query ('SET NAMES UTF8;');
-  mysqli_query ('SET COLLATION_CONNECTION=utf8_icelandic_ci;');
-  mysqli_client_encoding($conn);
-
-  $result = mysqli_query($conn,$sql);
-  $row = mysqli_fetch_array($result);
-  
-  if(mysqli_num_rows($result) == 1){
-    $_SESSION['Id'] = $row['ID'];
-    $_SESSION['Nafn'] = $row['Name'];
-    $_SESSION['Netfang'] = $row['Email'];
-    header("Location: home.php"); 
+    if (mysqli_num_rows($result) == 1){
+      $_SESSION['Id'] = $row['ID'];
+      $_SESSION['Nafn'] = $row['Name'];
+      $_SESSION['Netfang'] = $row['Email'];
+      header("Location: home.php"); 
+    }
+    else{
+      $msg = '<br>Notandi eða lykliorð er rangt!';
+    }
   }
-  else{
-    echo '<br>Ekki rett';
-  }
- }
-$conn->close(); 
+ $conn->close(); 
 ?>
 
 <!DOCTYPE html>
@@ -54,18 +50,17 @@ $conn->close();
     <div class="container">
 
       <form method="POST" action="" class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Dagbók táknmálstúlks</h2>
         <label for="inputEmail" class="sr-only">Notandi</label>
         <input type="text" id="inputEmail" class="form-control" placeholder="Notandi" name="username">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="text" id="inputPassword" class="form-control" placeholder="Lykliorð" name="password">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
+        <br>
         <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit-in" value="Submit">
       </form>
+        <?php
+          echo $msg;
+        ?>
     </div> <!-- /container -->
 
 
