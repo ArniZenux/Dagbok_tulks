@@ -13,6 +13,6 @@
   	echo 'connection';
   }*/
   if($conn){
-    //echo 'Connection';
+    echo 'Connection';
   }  
 ?>

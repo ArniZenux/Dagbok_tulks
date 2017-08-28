@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('connection.php');
-
+//include('loader.php');
 $name = $_SESSION['Nafn'];
 $id = $_SESSION['Id'];
 
@@ -68,27 +68,24 @@ echo '<hr>';
   </tr>
   </thead>
   <tbody>
-<?php
-$sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni WHERE ID='$id';";
-$result = mysqli_query($conn,$sql);
-//mysqli_query ('SET NAMES UTF8;');
-//mysqli_query ('SET COLLATION_CONNECTION=utf8_icelandic_ci;');
+<?php 
+     $sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni WHERE ID='$id';";
+     $result = mysqli_query($conn,$sql);
 
-if(!$result){
-	echo 'ekki samband';
-}
-while($row = mysqli_fetch_array($result) ){
-  echo '<tr class="bg-danger">';
-  echo  '<th scope="row">1</th>';
-  echo  '<td>'.$row[0].'</td>';
-  echo  '<td>'.$row[1].'</td>';
-  echo  '<td>'.$row[2].'</td>';
-  echo  '<td>'.$row[3].'</td>';
-  echo  '<td>'.$row[4].'</td>';
-  echo '</tr>';
-
-}
-$conn->close(); 
+     if(!$result){
+	     echo 'ekki samband';
+     }
+     while($row = mysqli_fetch_array($result) ){
+      echo '<tr class="bg-danger">';
+      echo  '<th scope="row">1</th>';
+      echo  '<td>'.$row[0].'</td>';
+      echo  '<td>'.$row[1].'</td>';
+      echo  '<td>'.$row[2].'</td>';
+      echo  '<td>'.$row[3].'</td>';
+      echo  '<td>'.$row[4].'</td>';
+      echo '</tr>';
+     }
+    $conn->close(); 
 ?>
   </tbody>
 </table>
