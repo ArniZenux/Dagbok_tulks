@@ -73,7 +73,7 @@ $msg = '<br>';
       <ul>
          <li><a href="tulkur.php">Nýr túlkur</a></li>
          <li><a href="verkefni.php">Nýtt verkefni</a></li>
-         <li>Nýr viðskiptavinur</li>
+         <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>
          <li>Breyta verkefni</li>
          <li>Breyta túlk</li>
          <li>Breyta viðskiptavini</li>
@@ -106,7 +106,7 @@ $msg = '<br>';
             
             <label for="inputPassword" class="sr-only">Vettvangur</label>
             <input type="text" id="inputPassword" class="form-control" placeholder="Vettvangur" name="vettvangur">
-                        
+
             <br>
             <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit-in" value="Skrá">
           </form>

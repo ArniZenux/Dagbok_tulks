@@ -71,7 +71,7 @@ $msg = '<br>';
       <ul>
          <li><a href="tulkur.php">Nýr túlkur</a></li>
          <li><a href="verkefni.php">Nýtt verkefni</a></li>
-         <li>Nýr viðskiptavinur</li>
+         <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>
          <li>Breyta verkefni</li>
          <li>Breyta túlk</li>
          <li>Breyta viðskiptavini</li>
