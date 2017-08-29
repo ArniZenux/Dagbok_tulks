@@ -53,6 +53,12 @@ echo '<hr>';
     <br><br>
 <div class="container">
  <h1>Dagbók táknmálstúlks</h1>
+ <?php
+   $sql = "SELECT Nafn FROM tblTulkur WHERE Kennitala = '1411813359';";
+   $result = mysqli_query($conn,$sql);
+   $row = mysqli_fetch_array($result);
+   echo '<h3>'.$row[0].'</h3>';
+ ?>
  <table class="table">
   <thead>
   <tr>
