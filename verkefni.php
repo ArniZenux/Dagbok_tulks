@@ -105,8 +105,14 @@ $msg = '<br>';
             <input type="text" id="inputPassword" class="form-control" placeholder="Nafn viðskiptavins" name="nafn_vidskiptavins">
             
             <label for="inputPassword" class="sr-only">Vettvangur</label>
-            <input type="text" id="inputPassword" class="form-control" placeholder="Vettvangur" name="vettvangur">
-
+            <select class="form-control" name="vettvangur" id="">
+                <option value="">Menntamál</option>
+                <option value="">Heilbrigðarmál</option>
+                <option value="">Kirkjamál</option>
+            </select>
+            
+            <!--<input type="text" id="inputPassword" class="form-control" placeholder="Vettvangur" name="vettvangur">
+            -->
             <br>
             <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit-in" value="Skrá">
           </form>
