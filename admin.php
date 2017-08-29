@@ -46,7 +46,7 @@ include('connection.php');
       <br>
       <ul>
          <li><a href="tulkur.php">Nýr túlkur</a></li>
-         <li>Nýtt verkefni</li>
+         <li><a href="verkefni.php">Nýtt verkefni</a></li>
          <li>Nýr viðskiptavinur</li>
          <li>Breyta verkefni</li>
          <li>Breyta túlk</li>
