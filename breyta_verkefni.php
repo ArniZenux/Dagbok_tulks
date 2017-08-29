@@ -63,6 +63,8 @@ include('connection.php');
    https://www.youtube.com/watch?v=oxZj82kh4FA
    <br>
    https://markcell.github.io/jquery-tabledit/#home
+   <br>
+   http://www.jquery-bootgrid.com/examples
    </p>
 
 		<table class="table">

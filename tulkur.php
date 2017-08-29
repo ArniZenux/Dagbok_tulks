@@ -1,9 +1,9 @@
 <?php
 include('connection.php');
-//include('save_nyrtulkur.php');
+include('sava_newtulkur.php');
 
 $msg = '<br>';
-
+/*
  if(isset($_POST['submit-in'])){
     $name      = $_POST['username'];
     $email     = $_POST['netfang'];
@@ -24,6 +24,7 @@ $msg = '<br>';
     }
   }
  $conn->close(); 
+ */
 ?>
 
 <!DOCTYPE html>
@@ -36,11 +37,11 @@ $msg = '<br>';
     <meta name="author" content="">
        <!-- Bootstrap core CSS -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
+  
 </head>
-<body>
+<body onload="viewData()">
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -80,14 +81,15 @@ $msg = '<br>';
 
       <hr>
       
-      <h2>Nýr túlkur</h2>
-          <form method="POST" action="" class="form-signin">
+      <h2>Skrá nýr túlk</h2>
+        <form method="POST" action="" class="form-signin">
             <h2 class="form-signin-heading">Skrá táknmálstúlk</h2>
-            <label for="inputEmail" class="sr-only">Nafn</label>
+            <!-- <label for="inputEmail" class="sr-only">Nafn</label> --> 
             <input type="text" id="inputEmail" class="form-control" placeholder="Nafn" name="username">
-            <!--<label for="inputPassword" class="sr-only">Kennitala</label>
+            
+            <!-- <label for="inputPassword" class="sr-only">Kennitala</label> -->
             <input type="text" id="inputPassword" class="form-control" placeholder="Kennitala" name="kennitala">
-            -->
+            
             <label for="inputPassword" class="sr-only">Sími (GSM)</label>
             <input type="text" id="inputPassword" class="form-control" placeholder="Lykliorð" name="password">
             <label for="inputPassword" class="sr-only">Netfang @</label>
@@ -95,10 +97,46 @@ $msg = '<br>';
             <br>
             <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit-in" value="Skrá">
           </form>
-       <?php
-         echo $msg;
-       ?>
+      <?php
+        echo $msg;
+      ?>
+      <h2>Túlkur</h2>
+      <table id="tabledit" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Kennitala</th>
+            <th>Nafn</th>
+            <th>Netfang</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+     </table> 
     </div>
 
+  <!-- Javascript - Jquery core --> 
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/jquery-tabledit/jquery.tabledit.min.js"></script>
+  <script>
+    function viewData(){
+      $.ajax({
+          url:'sava_newtulkur.php?p=view',
+          method:'GET'
+      }).done(function(data){
+        $('tbody').html(data)
+        tableData()
+      })
+    }
+
+    function tableData(){
+      $('#tabledit').Tabledit({
+        url: 'save_nyrtulkur.php',
+        columns: {
+                   identifier: [0, 'id'],
+                   editable: [[1, 'nickname'], [2, 'firstname'], [3, 'lastname']]
+        }
+       });
+    }
+  </script>
 </body>
 </html>

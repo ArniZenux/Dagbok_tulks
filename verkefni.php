@@ -1,6 +1,6 @@
 <?php
 include('connection.php');
-//include('save_nyttverkefni.php');
+include('save_nyttverkefni.php');
 
 $msg = '<br>';
 
@@ -42,7 +42,7 @@ $msg = '<br>';
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 </head>
-<body>
+<body onload="viewData()">
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -119,7 +119,46 @@ $msg = '<br>';
        <?php
          echo $msg;
        ?>
-    </div>
+    
+    <h2>Verkefni</h2>
+      <table id="tabledit" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Númer</th>
+            <th>Heiti</th>
+            <th>Staður</th>
+            <th>Dagur</th>
+            <th>Byrja</th>
+            <th>Endir</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+     </table> 
 
+    </div>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/jquery-tabledit/jquery.tabledit.min.js"></script>
+  <script>
+    function viewData(){
+      $.ajax({
+          url:'save_nyttverkefni.php?p=view',
+          method:'GET'
+      }).done(function(data){
+        $('tbody').html(data)
+        tableData()
+      })
+    }
+
+    function tableData(){
+      $('#tabledit').Tabledit({
+        url: 'save_nyttverkefni.php',
+        columns: {
+                   identifier: [0, 'Numer'],
+                   editable: [[1, 'Heiti'], [2, 'Staður'], [3, 'Dagur'],[4, 'Byrja'],[5, 'Endir']]
+        }
+       });
+    }
+   </script>
 </body>
 </html>

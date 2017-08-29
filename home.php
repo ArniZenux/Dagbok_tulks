@@ -72,7 +72,7 @@ echo '<hr>';
   </thead>
   <tbody>
 <?php
-$sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni_isl WHERE ID='$id';";
+$sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni WHERE ID='$id';";
 $result = mysqli_query($conn,$sql);
 
 if(!$result){
