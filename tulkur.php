@@ -26,8 +26,6 @@ $msg = '<br>';
  $conn->close(); 
 ?>
 
-?>
-
 <!DOCTYPE html>
 <html lang="is">
 <head>
@@ -71,8 +69,8 @@ $msg = '<br>';
       <h1>Administrator</h1>
       <br>
       <ul>
-         <li>Nýr túlkur</li>
-         <li>Nýtt verkefni</li>
+         <li><a href="tulkur.php">Nýr túlkur</a></li>
+         <li><a href="verkefni.php">Nýtt verkefni</a></li>
          <li>Nýr viðskiptavinur</li>
          <li>Breyta verkefni</li>
          <li>Breyta túlk</li>
