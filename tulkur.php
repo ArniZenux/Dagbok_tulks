@@ -40,6 +40,10 @@ $msg = '<br>';
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body onload="viewData()">
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -66,52 +70,80 @@ $msg = '<br>';
     <br><br>
     
     <div class="container">
- 
-      <h1>Administrator</h1>
-      <br>
-      <ul>
-         <li><a href="tulkur.php">Nýr túlkur</a></li>
-         <li><a href="verkefni.php">Nýtt verkefni</a></li>
-         <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>
-         <li>Breyta verkefni</li>
-         <li>Breyta túlk</li>
-         <li>Breyta viðskiptavini</li>
-         <li>Tölfræði</li>
-      </ul>
-
-      <hr>
-      
-      <h2>Skrá nýr túlk</h2>
-        <form method="POST" action="" class="form-signin">
-            <h2 class="form-signin-heading">Skrá táknmálstúlk</h2>
-            <!-- <label for="inputEmail" class="sr-only">Nafn</label> --> 
-            <input type="text" id="inputEmail" class="form-control" placeholder="Nafn" name="username">
-            
-            <!-- <label for="inputPassword" class="sr-only">Kennitala</label> -->
-            <input type="text" id="inputPassword" class="form-control" placeholder="Kennitala" name="kennitala">
-            
-            <label for="inputPassword" class="sr-only">Sími (GSM)</label>
-            <input type="text" id="inputPassword" class="form-control" placeholder="Lykliorð" name="password">
-            <label for="inputPassword" class="sr-only">Netfang @</label>
-            <input type="text" id="inputPassword" class="form-control" placeholder="Netfang @" name="netfang">
+     <div class="form_home">
+            <h1>Umsjónarsvæði túlkaþjónustu</h1>
             <br>
-            <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit-in" value="Skrá">
-          </form>
-      <?php
-        echo $msg;
-      ?>
-      <h2>Túlkur</h2>
-      <table id="tabledit" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>Kennitala</th>
-            <th>Nafn</th>
-            <th>Netfang</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-     </table> 
+            <ul class="tab-group">
+               <li><a href="tulkur.php">Nýr túlkur</a></li>
+               <li><a href="verkefni.php">Nýtt verkefni</a></li>
+               <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>
+               <li>Breyta verkefni</li>
+               <li>Breyta túlk</li>
+               <li>Breyta viðskiptavini</li>
+               <li>Tölfræði</li>
+            </ul>
+
+            <hr>
+            <h3>Táknmálstúlkur</h3>
+            <table id="tabledit" class="table  table-striped">
+              <thead>
+                <tr>
+                  <th>Kennitala</th>
+                  <th>Nafn</th>
+                  <th>Netfang</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table> 
+            
+            <hr>
+            <br><br>
+
+            <h3>Skrá nýr túlk</h3>
+             <!--
+              <form method="POST" action="" class="form-signin">
+                  <h2 class="form-signin-heading">Skrá táknmálstúlk</h2>
+                  <label for="inputEmail" class="sr-only">Nafn</label>  
+                  <input type="text" id="inputEmail" class="form-control" placeholder="Nafn" name="username">
+                  
+                  <label for="inputPassword" class="sr-only">Kennitala</label> 
+                  <input type="text" id="inputPassword" class="form-control" placeholder="Kennitala" name="kennitala">
+                  
+                  <label for="inputPassword" class="sr-only">Sími (GSM)</label>
+                  <input type="text" id="inputPassword" class="form-control" placeholder="Lykliorð" name="password">
+                  <label for="inputPassword" class="sr-only">Netfang @</label>
+                  <input type="text" id="inputPassword" class="form-control" placeholder="Netfang @" name="netfang">
+                  <br>
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit-in" value="Skrá">
+                </form>
+                -->
+                  <div class="top-row">
+                        <div class="field-wrap">
+                        <label>
+                          Notandi<span class="req">*</span>
+                        </label>
+                        <input type="text" required autocomplete="off" name="username">
+                      </div>
+                       <div class="field-wrap">
+                        <label>
+                         Lykliorð<span class="req">*</span>
+                        </label>
+                        <input type="text" required autocomplete="off" name="password">
+                       </div>
+                  </div>
+                     <div class="field-wrap">
+                      <label>
+                        Email Address<span class="req">*</span>
+                      </label>
+                      <input type="email"required autocomplete="off"/>
+                    </div>
+                  <button type="submit" class="button button-block" name="submit-new">Skrá nýr</button>
+            <?php
+              echo $msg;
+            ?>
+            
+     </div>
     </div>
 
   <!-- Javascript - Jquery core --> 
