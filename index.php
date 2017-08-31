@@ -120,7 +120,7 @@ if(isset($_POST['submit-in-fanney'])){
             <input type="type" required autocomplete="off" name="password"/>
           </div>
 
-          <input type="submit" class="button button-block" name="submit-in" value="Skrá inn">
+          <button type="submit" class="button button-block" name="submit-in">Skrá inn</button>
           
           </form>
 
@@ -147,7 +147,7 @@ if(isset($_POST['submit-in-fanney'])){
           
           <!-- <p class="forgot"><a href="#">Forgot Password?</a></p>
            --> 
-          <input type="submit" class="button button-block" name="submit-in-fanney" value="Skrá inn">
+          <button type="submit" class="button button-block" name="submit-in-fanney">Skrá inn</button>
           
           </form>
 

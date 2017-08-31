@@ -30,6 +30,15 @@ a:hover {
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
+.form_home {
+  background: rgba(19, 35, 47, 0.9);
+  padding: 40px;
+  max-width: 100%;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
 .tab-group {
   list-style: none;
   padding: 0;
@@ -72,6 +81,21 @@ h1 {
   color: #ffffff;
   font-weight: 300;
   margin: 0 0 40px;
+}
+
+h3{
+  text-align: left;
+  color: #ffffff;
+  font-weight: 200;
+  margin: 0 10 20px;
+}
+
+table{
+  color: #ffffff;
+}
+
+td {
+  color:black;
 }
 
 label {

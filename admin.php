@@ -15,6 +15,10 @@ include('connection.php');
 
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -41,49 +45,49 @@ include('connection.php');
     <br><br>
     
     <div class="container">
- 
-      <h1>Administrator</h1>
-      <br>
-      <ul>
-         <li><a href="tulkur.php">Nýr túlkur</a></li>
-         <li><a href="verkefni.php">Nýtt verkefni</a></li>
-         <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>
-         <li><a href="breyta_verkefni.php">Breyta verkefni</a></li>
-         <li>Breyta túlk</li>
-         <li>Breyta viðskiptavini</li>
-         <li>Tölfræði</li>
-      </ul>
+       <div class="form_home">
+          <h1>Umsjónarsvæði túlkaþjónustu</h1>
+          <br>
+          <ul class="tab-group">
+             <li><a href="tulkur.php">Nýr túlkur</a></button></li>
+             <li><a href="verkefni.php">Nýtt verkefni</a></li>
+             <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>
+             <li><a href="breyta_verkefni.php">Breyta verkefni</a></li>
+             <li>Breyta túlk</li>
+             <li>Breyta viðskiptavini</li>
+             <li>Tölfræði</li>
+          </ul>
 
-      <hr>
-      
-      <h2>Verkefnilisti</h2>
-        
-		<table class="table">
-		  <thead>
-		    <tr>
-			  <th>Nr</th>
-			  <th>Verkefni</th>
-			  <th>Staður</th>
-			  <th>Dagur</th>
-			  <th>Byrja</th>
-			  <th>Endir</th>
-			  <th>Viðskiptavinur</th>
-			  <th>Vettvangur</th>
-			</tr>
-		  </thead>
-		  <tbody>
-		   <tr class="danger">
-               <th>1</th>
-               <td>Kaffiboð hjá Don Corleone</td>
-               <td>Siðamúla 7</td>
-               <td>Þriðjudagur</td>
-               <td>12:00</td>
-               <td>12:40</td>
-               <td>Don Árni Ingi Jóhanneson</td>
-               <td>Ráðgjafi</td>
-            </tr>
-          </tbody>
-        </table>
+          <hr>
+          
+        <h3>Verkefnilisti</h3>
+           	<table class="table">
+        		  <thead>
+        		    <tr>
+        			  <th>Nr</th>
+        			  <th>Verkefni</th>
+        			  <th>Staður</th>
+        			  <th>Dagur</th>
+        			  <th>Byrja</th>
+        			  <th>Endir</th>
+        			  <th>Viðskiptavinur</th>
+        			  <th>Vettvangur</th>
+        			</tr>
+        		  </thead>
+        		  <tbody>
+        		   <tr class="danger">
+                       <td>1</td>
+                       <td>Kaffiboð hjá Don Corleone</td>
+                       <td>Siðamúla 7</td>
+                       <td>Þriðjudagur</td>
+                       <td>12:00</td>
+                       <td>12:40</td>
+                       <td>Don Árni Ingi Jóhanneson</td>
+                       <td>Ráðgjafi</td>
+                    </tr>
+                  </tbody>
+              </table>
+       </div>
     </div>
 
 </body>

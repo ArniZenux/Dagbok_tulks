@@ -28,6 +28,11 @@ echo '<hr>';
     <meta name="author" content="">
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -52,48 +57,51 @@ echo '<hr>';
     </nav>
     <br><br>
 <div class="container">
- <h1>Dagbók táknmálstúlks</h1>
- <?php
-   $sql = "SELECT Nafn FROM tblTulkur WHERE Kennitala = '1411813359';";
-   $result = mysqli_query($conn,$sql);
-   $row = mysqli_fetch_array($result);
-   echo '<h3>'.$row[0].'</h3>';
- ?>
- <table class="table">
-  <thead>
-  <tr>
-  <th>Nr</th>
-  <th>Verkefni</th>
-  <th>Staður</th>
-  <th>Dagur</th>
-  <th>Byrja</th>
-  <th>Endir</th>
-  </tr>
-  </thead>
-  <tbody>
-<?php
-$sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni WHERE ID='$id';";
-$result = mysqli_query($conn,$sql);
 
-if(!$result){
-	echo 'ekki samband';
-}
+<div class="form_home"> 
 
-while( $row = mysqli_fetch_array($result) ){
-  echo '<tr class="bg-danger">';
-  echo  '<th scope="row">1</th>';
-  echo  '<td>'.$row[0].'</td>';
-  echo  '<td>'.$row[1].'</td>';
-  echo  '<td>'.$row[2].'</td>';
-  echo  '<td>'.$row[3].'</td>';
-  echo  '<td>'.$row[4].'</td>';
-  echo '</tr>';
-}
-$conn->close(); 
-?>
-  </tbody>
-</table>
+               <h1>Dagbók táknmálstúlks</h1>
+               <?php
+                 $sql = "SELECT Nafn FROM tblTulkur WHERE Kennitala = '1411813359';";
+                 $result = mysqli_query($conn,$sql);
+                 $row = mysqli_fetch_array($result);
+                 echo '<h3>'.$row[0].'</h3>';
+               ?>
+               <table class="table">
+                <thead>
+                <tr>
+                <th>Nr</th>
+                <th>Verkefni</th>
+                <th>Staður</th>
+                <th>Dagur</th>
+                <th>Byrja</th>
+                <th>Endir</th>
+                </tr>
+                </thead>
+                <tbody>
+              <?php
+              $sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni WHERE ID='$id';";
+              $result = mysqli_query($conn,$sql);
 
+              if(!$result){
+              	echo 'ekki samband';
+              }
+
+              while( $row = mysqli_fetch_array($result) ){
+                echo '<tr class="info">';
+                echo  '<td scope="row">1</th>';
+                echo  '<td>'.$row[0].'</td>';
+                echo  '<td>'.$row[1].'</td>';
+                echo  '<td>'.$row[2].'</td>';
+                echo  '<td>'.$row[3].'</td>';
+                echo  '<td>'.$row[4].'</td>';
+                echo '</tr>';
+              }
+              $conn->close(); 
+              ?>
+                </tbody>
+              </table>
+  </div>
 </div>
 </body>
 </html>
