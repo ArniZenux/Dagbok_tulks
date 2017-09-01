@@ -50,13 +50,10 @@ include('connection.php');
           <h1>Umsjónarsvæði túlkaþjónustu</h1>
           <br>
           <ul class="tab-group">
-             <li><a href="tulkur.php">Nýr túlkur</a></button></li>
-             <li><a href="verkefni.php">Nýtt verkefni</a></li>
-             <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>
-             <li><a href="breyta_verkefni.php">Breyta verkefni</a></li>
-             <li>Breyta túlk</li>
-             <li>Breyta viðskiptavini</li>
-             <li>Tölfræði</li>
+            <li><a href="tulkur.php">Nýr túlkur</a></li>
+               <li><a href="verkefni.php">Nýtt verkefni</a></li>
+               <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>            
+               <li><a href="#">Tölfræði</a></li>
           </ul>
 
           <hr>
