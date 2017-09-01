@@ -19,10 +19,10 @@ if($page=='view'){
    while($row = mysqli_fetch_array($result)) {
    		  ?>
    		  <tr class="bg-danger">';
-		   <td><?php echo $row['Kennitala'] ?></td>';
-		   <td><?php echo $row['Nafn'] ?></td>';
-		   <td><?php echo $row['Email'] ?></td>';
-		  </tr>;
+		      <td><?php echo $row['Kennitala'] ?></td>';
+		      <td><?php echo $row['Nafn'] ?></td>';
+		      <td><?php echo $row['Email'] ?></td>';
+		    </tr>;
 		<?php
 		}
  }
