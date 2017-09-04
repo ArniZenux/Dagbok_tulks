@@ -11,15 +11,15 @@ if(isset($_POST['submit-in'])){
     $name = stripcslashes($name);
     $pass = stripcslashes($pass);
    
-    $sql = "SELECT ID, Name, Email FROM tblNotandi WHERE Name='$name' AND Password='$pass';";
+    $sql = "SELECT Kt FROM tblNotandi WHERE Notandi='$name' AND Password='$pass';";
   
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($result);
   
     if (mysqli_num_rows($result) == 1){
-      $_SESSION['Id'] = $row['ID'];
-      $_SESSION['Nafn'] = $row['Name'];
-      $_SESSION['Netfang'] = $row['Email'];
+      $_SESSION['Kt'] = $row['Kt'];
+      //$_SESSION['Nafn'] = $row['Name'];
+      //$_SESSION['Netfang'] = $row['Email'];
       header("Location: home.php"); 
     }
     else{
@@ -33,15 +33,17 @@ if(isset($_POST['submit-in-fanney'])){
     $name = stripcslashes($name);
     $pass = stripcslashes($pass);
    
-    $sql = "SELECT ID, Name, Email FROM tblNotandi WHERE Name='$name' AND Password='$pass';";
+    $sql = "SELECT Kt FROM tblNotandi WHERE Notandi='$name' AND Password='$pass';";
   
     $result = mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($result);
   
     if (mysqli_num_rows($result) == 1){
-      $_SESSION['Id'] = $row['ID'];
-      $_SESSION['Nafn'] = $row['Name'];
-      $_SESSION['Netfang'] = $row['Email'];
+      $_SESSION['Kt
+
+      '] = $row['Kt'];
+      //$_SESSION['Nafn'] = $row['Name'];
+      //$_SESSION['Netfang'] = $row['Email'];
       header("Location: admin.php"); 
     }
     else{

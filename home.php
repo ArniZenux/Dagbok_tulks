@@ -2,9 +2,8 @@
 session_start();
 include('connection.php');
 //include('loader.php');
-$name = $_SESSION['Nafn'];
-$id = $_SESSION['Id'];
-
+//$name = $_SESSION['Nafn'];
+$Kennitala = $_SESSION['Kt'];
 /*
 echo '<br>Home.php<br>';
 echo $_SESSION['Id'];
@@ -64,13 +63,18 @@ echo '<hr>';
 <div class="container">
 
 <div class="form_home"> 
-
-               <h1>Dagbók táknmálstúlks</h1>
+            <h1>Dagbók táknmálstúlks</h1>
+             <br>
+              <ul class="tab-group">
+                <li><a href="#">Verkefnislisti</a></li>            
+                <li><a href="#">Tölfræði</a></li>
+              </ul>
+             <hr> 
                <?php
-                 $sql = "SELECT Nafn FROM tblTulkur WHERE Kennitala = '1411813359';";
+                 $sql = "SELECT Nafn FROM tblTulkur WHERE Kt = '$Kennitala';";
                  $result = mysqli_query($conn,$sql);
                  $row = mysqli_fetch_array($result);
-                 echo '<h3>'.$row[0].'</h3>';
+                 echo '<h3>'.$row['Nafn'].'</h3>';
                ?>
                <table class="table">
                 <thead>
@@ -81,11 +85,12 @@ echo '<hr>';
                 <th>Dagur</th>
                 <th>Byrja</th>
                 <th>Endir</th>
+                <th>Vettvangur</th>
                 </tr>
                 </thead>
                 <tbody>
               <?php
-              $sql = "SELECT Heiti,Stadur, Dagur, Byrja, Endir FROM tblVerkefni WHERE ID='$id';";
+              $sql = "SELECT Nr, Heiti, Stadur, Dagur, Timi_byrja, Timi_endir, Vettvangur FROM tblVerkefni WHERE Nr='1';";
               $result = mysqli_query($conn,$sql);
 
               if(!$result){
@@ -94,12 +99,13 @@ echo '<hr>';
 
               while( $row = mysqli_fetch_array($result) ){
                 echo '<tr class="info">';
-                echo  '<td scope="row">1</th>';
-                echo  '<td>'.$row[0].'</td>';
+                echo  '<td scope="row">'.$row[0].'</th>';
                 echo  '<td>'.$row[1].'</td>';
                 echo  '<td>'.$row[2].'</td>';
                 echo  '<td>'.$row[3].'</td>';
                 echo  '<td>'.$row[4].'</td>';
+                echo  '<td>'.$row[5].'</td>';
+                echo  '<td>'.$row[6].'</td>';
                 echo '</tr>';
               }
               $conn->close(); 
