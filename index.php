@@ -2,7 +2,7 @@
 session_start();
 include ('connection.php');
 //include('login.php');
-
+//include('header.php');
 $msg = '<br>';
 
 if(isset($_POST['submit-in'])){
@@ -160,5 +160,8 @@ if(isset($_POST['submit-in-fanney'])){
 </div> <!-- /form -->
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="js/index.js"></script>
+<?php
+//include('footer.php');
+?>
 </body>
 </html>
