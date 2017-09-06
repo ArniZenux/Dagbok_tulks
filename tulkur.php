@@ -1,56 +1,39 @@
 <?php
+//session_start();
 include('connection.php');
 include('sava_newtulkur.php');
 
-$msg = '<br>';
+$msg = '';
 
- if(isset($_POST['submit-new'])){
-    $Kennitala  = $_POST['Kennitala'];
-    $Fulltnafn  = $_POST['Fulltnafn'];
-    $Simi       = $_POST['Simi'];
-    $Netfang    = $_POST['Netfang'];
+if(isset($_POST['submit-new'])){
+   $Kennitala  = $_POST['Kennitala'];
+   $Fulltnafn  = $_POST['Fulltnafn'];
+   $Simi       = $_POST['Simi'];
+   $Netfang    = $_POST['Netfang'];
    
-    $sql = "INSERT INTO tblTulkur(Kt, Nafn, Simi, Netfang) VALUES('$Kennitala','$Fulltnafn','$Simi','$Netfang');";
-  
-    $result = mysqli_query($conn,$sql);
-    if ($result){
-       $msg = '<br>Vista!';
-    }
-    else{
-      $msg = '<br>Mistók!';
-    }
-  }
+   $sql = "INSERT INTO tblTulkur(Kt, Nafn, Simi, Netfang) VALUES('$Kennitala','$Fulltnafn','$Simi','$Netfang');";
+ 
+   $result = mysqli_query($conn,$sql);
+   if ($result){
+      $msg = '<br>Vista!';
+   }
+   else{
+     $msg = '<br>Mistók!';
+   }
+ }
  $conn->close(); 
-?>
 
-<!DOCTYPE html>
-<html lang="is">
-<head>
-    <meta charset="utf-8">
-    <title>Administrator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap core CSS -->
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-    
-    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+include('header.php');
+?>
 <body onload="viewData()">
 <?php
 include('navbar.php');
 ?>
-    <br><br>
-
-    <div class="container">
+  <div class="container">
      <div class="form_home">
-            <h1>Umsjónarsvæði túlkaþjónustu</h1>
-            <hr>
-            <h3>Táknmálstúlkur</h3>
+       <h1>Umsjónarsvæði túlkaþjónustu</h1>
+        <hr>
+          <h3>Táknmálstúlkur</h3>
             <table id="tabledit" class="table table-striped">
               <thead>
                 <tr>
@@ -63,24 +46,24 @@ include('navbar.php');
               <tbody>
               </tbody>
             </table> 
-            <br>
-            <hr>
-            <br>
-            <h3>Skrá nýr túlk</h3>
+           <br>
+        <hr>
+         <h3>Skrá nýr túlk</h3>
+           <br>
               <form method="POST" action="">
                  <div class="top-row">
-                        <div class="field-wrap">
+                      <div class="field-wrap">
                         <label>
                           Kennitala<span class="req">*</span>
                         </label>
                         <input type="text" required autocomplete="off" name="Kennitala">
                       </div>
-                       <div class="field-wrap">
+                      <div class="field-wrap">
                         <label>
                          Fullt nafn<span class="req">*</span>
                         </label>
                         <input type="text" required autocomplete="off" name="Fulltnafn">
-                       </div>
+                      </div>
                   </div>
                   <div class="top-row">
                      <div class="field-wrap">
@@ -98,10 +81,10 @@ include('navbar.php');
                   </div>
                   <button type="submit" class="button button-block" name="submit-new">Skrá</button>
                   <?php
-                    echo $msg;
+                     echo $msg;
                   ?>
-              </form>
-     </div>
+            </form>
+       </div>
     </div>
 
   <!-- Javascript - Jquery core --> 
@@ -120,7 +103,7 @@ include('navbar.php');
 
     function tableData(){
       $('#tabledit').Tabledit({
-        url: 'save_nyrtulkur.php',
+        url: 'sava_newtulkur.php',
         columns: {
                    identifier: [0, 'id'],
                    editable: [[1, 'nickname'], [2, 'firstname'], [3, 'lastname']]
@@ -128,5 +111,6 @@ include('navbar.php');
        });
     }
   </script>
-</body>
-</html>
+<?php
+  include('footer.php');
+?>

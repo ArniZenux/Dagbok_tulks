@@ -11,8 +11,8 @@
   }
   else{
   	echo 'connection';
-  }*/
+  }
   if($conn){
-    echo 'Connection';
-  }  
+    echo 'Samband';
+  }*/  
 ?>
