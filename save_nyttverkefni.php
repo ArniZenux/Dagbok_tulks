@@ -19,12 +19,13 @@ if($page=='view'){
    while($row = mysqli_fetch_array($result)) {
    		  ?>
    		  <tr class="bg-danger">';
-		   <td><?php echo $row['ID'] ?></td>
+		   <td><?php echo $row['Nr'] ?></td>
 		   <td><?php echo $row['Heiti'] ?></td>
 		   <td><?php echo $row['Stadur'] ?></td>
        <td><?php echo $row['Dagur'] ?></td>
-       <td><?php echo $row['Byrja'] ?></td>
-       <td><?php echo $row['Endir'] ?></td>
+       <td><?php echo $row['Timi_byrja'] ?></td>
+       <td><?php echo $row['Timi_endir'] ?></td>
+       <td><?php echo $row['Vettvangur'] ?></td>
 		  </tr>;
 		<?php
 		}

@@ -39,9 +39,7 @@ if(isset($_POST['submit-in-fanney'])){
     $row = mysqli_fetch_array($result);
   
     if (mysqli_num_rows($result) == 1){
-      $_SESSION['Kt
-
-      '] = $row['Kt'];
+      $_SESSION['Kt'] = $row['Kt'];
       //$_SESSION['Nafn'] = $row['Name'];
       //$_SESSION['Netfang'] = $row['Email'];
       header("Location: admin.php"); 

@@ -3,17 +3,14 @@ include('connection.php');
 include('sava_newtulkur.php');
 
 $msg = '<br>';
-/*
- if(isset($_POST['submit-in'])){
-    $name      = $_POST['username'];
-    $email     = $_POST['netfang'];
-    //$kennitala = $_POST['kennitala'];
-    $pass      = $_POST['password'];
-    
-    $name = stripcslashes($name);
-    $pass = stripcslashes($pass);
+
+ if(isset($_POST['submit-new'])){
+    $Kennitala  = $_POST['Kennitala'];
+    $Fulltnafn  = $_POST['Fulltnafn'];
+    $Simi       = $_POST['Simi'];
+    $Netfang    = $_POST['Netfang'];
    
-    $sql = "INSERT INTO tblNotandi(Name, Email, Password) VALUES('$name','$email','$pass');";
+    $sql = "INSERT INTO tblTulkur(Kt, Nafn, Simi, Netfang) VALUES('$Kennitala','$Fulltnafn','$Simi','$Netfang');";
   
     $result = mysqli_query($conn,$sql);
     if ($result){
@@ -24,7 +21,6 @@ $msg = '<br>';
     }
   }
  $conn->close(); 
- */
 ?>
 
 <!DOCTYPE html>
@@ -45,41 +41,14 @@ $msg = '<br>';
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body onload="viewData()">
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <!-- 
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          -->
-          <a class="navbar-brand" href="admin.php">Tilbaka</a>
-        </div>
-        <!-- <div id="navbar" class="collapse navbar-collapse">  --> 
-          <ul class="nav navbar-nav navbar-right">
-            <!--<li class="active"><a href="#">Heima</a></li>
-            <li><a href="#about">Stilling</a></li> -->
-            <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>   Útskrá</a></li>
-          </ul>
-      </div>
-</nav>
-    
+<?php
+include('navbar.php');
+?>
     <br><br>
-    
+
     <div class="container">
      <div class="form_home">
             <h1>Umsjónarsvæði túlkaþjónustu</h1>
-            <br>
-            <ul class="tab-group">
-               <li><a href="tulkur.php">Nýr túlkur</a></li>
-               <li><a href="verkefni.php">Nýtt verkefni</a></li>
-               <li><a href="vidskiptavinur.php">Nýr viðskiptavinur</a></li>            
-               <li><a href="#">Tölfræði</a></li>
-            </ul>
-
             <hr>
             <h3>Táknmálstúlkur</h3>
             <table id="tabledit" class="table table-striped">
@@ -87,58 +56,51 @@ $msg = '<br>';
                 <tr>
                   <th>Kennitala</th>
                   <th>Nafn</th>
+                  <th>Símanúmer</th>
                   <th>Netfang</th>
                 </tr>
               </thead>
               <tbody>
               </tbody>
             </table> 
-            
+            <br>
             <hr>
             <br>
             <h3>Skrá nýr túlk</h3>
-             <!--
-              <form method="POST" action="" class="form-signin">
-                  <h2 class="form-signin-heading">Skrá táknmálstúlk</h2>
-                  <label for="inputEmail" class="sr-only">Nafn</label>  
-                  <input type="text" id="inputEmail" class="form-control" placeholder="Nafn" name="username">
-                  
-                  <label for="inputPassword" class="sr-only">Kennitala</label> 
-                  <input type="text" id="inputPassword" class="form-control" placeholder="Kennitala" name="kennitala">
-                  
-                  <label for="inputPassword" class="sr-only">Sími (GSM)</label>
-                  <input type="text" id="inputPassword" class="form-control" placeholder="Lykliorð" name="password">
-                  <label for="inputPassword" class="sr-only">Netfang @</label>
-                  <input type="text" id="inputPassword" class="form-control" placeholder="Netfang @" name="netfang">
-                  <br>
-                  <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit-in" value="Skrá">
-                </form>
-                -->
-                  <div class="top-row">
+              <form method="POST" action="">
+                 <div class="top-row">
                         <div class="field-wrap">
                         <label>
-                          Notandi<span class="req">*</span>
+                          Kennitala<span class="req">*</span>
                         </label>
-                        <input type="text" required autocomplete="off" name="username">
+                        <input type="text" required autocomplete="off" name="Kennitala">
                       </div>
                        <div class="field-wrap">
                         <label>
-                         Lykliorð<span class="req">*</span>
+                         Fullt nafn<span class="req">*</span>
                         </label>
-                        <input type="text" required autocomplete="off" name="password">
+                        <input type="text" required autocomplete="off" name="Fulltnafn">
                        </div>
                   </div>
+                  <div class="top-row">
                      <div class="field-wrap">
-                      <label>
-                        Tölvupóstur<span class="req">*</span>
-                      </label>
-                      <input type="email" required autocomplete="off"/>
-                    </div>
+                        <label>
+                          Simi<span class="req">*</span>
+                        </label>
+                        <input type="text" required autocomplete="off" name="Simi">
+                     </div>
+                     <div class="field-wrap">
+                        <label>
+                         Netfang<span class="req">*</span>
+                        </label>
+                        <input type="text" required autocomplete="off" name="Netfang">
+                     </div>
+                  </div>
                   <button type="submit" class="button button-block" name="submit-new">Skrá</button>
-            <?php
-              echo $msg;
-            ?>
-            
+                  <?php
+                    echo $msg;
+                  ?>
+              </form>
      </div>
     </div>
 

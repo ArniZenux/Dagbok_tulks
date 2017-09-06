@@ -4,16 +4,15 @@ include('save_nyttverkefni.php');
 
 $msg = '<br>';
 
- if(isset($_POST['submit-in'])){
-    /*$name      = $_POST['username'];
-    $email     = $_POST['netfang'];
-    //$kennitala = $_POST['kennitala'];
-    $pass      = $_POST['password'];
+if(isset($_POST['submit-new'])){
+    $Heiti    = $_POST['Heiti'];
+    $Stadur     = $_POST['Stadur'];
+    $Dagur      = $_POST['Dagur'];
+    $Byrja      = $_POST['Byrja'];
+    $Endir      = $_POST['Endir'];
+    $Vettvangur = $_POST['Vettvangur'];
     
-    $name = stripcslashes($name);
-    $pass = stripcslashes($pass);
-   
-    $sql = "INSERT INTO tblNotandi(Name, Email, Password) VALUES('$name','$email','$pass');";
+    $sql = "INSERT INTO tblVerkefni(Heiti, Stadur, Dagur, Timi_byrja, Timi_endir, Vettvangur) VALUES('$Heiti','$Stadur','$Dagur','$Byrja','$Endir','$Vettvangur');";
   
     $result = mysqli_query($conn,$sql);
     if ($result){
@@ -22,17 +21,16 @@ $msg = '<br>';
     else{
       $msg = '<br>Mistók!';
     }
-  }
- $conn->close(); 
-  */
  }
+ $conn->close(); 
+ 
 ?>
 
 <!DOCTYPE html>
 <html lang="is">
 <head>
 	<meta charset="utf-8">
-    <title>Administrator</title>
+    <title>Verkefni</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -91,6 +89,7 @@ $msg = '<br>';
                   <th>Dagur</th>
                   <th>Byrja</th>
                   <th>Endir</th>
+                  <th>Vettvangur</th>
                 </tr>
               </thead>
               <tbody>
@@ -98,19 +97,20 @@ $msg = '<br>';
            </table> 
       <hr>
       <h3>Nýtt verkefni</h3>
-                 <div class="top-row">
-                   <div class="field-wrap">
+          <form method="POST" action="">
+                   <div class="top-row">
+                      <div class="field-wrap">
                         <label>
                           Heiti<span class="req">*</span>
                         </label>
-                        <input type="text" required autocomplete="off" name="username">
-                   </div>
-                   <div class="field-wrap">
-                      <label>
+                        <input type="text" required autocomplete="off" name="Heiti">
+                      </div>
+                      <div class="field-wrap">
+                        <label>
                          Staður<span class="req">*</span>
                         </label>
-                        <input type="text" required autocomplete="off" name="password">
-                       </div>
+                        <input type="text" required autocomplete="off" name="Stadur">
+                      </div>
                    </div>
              
                   <div class="top-row"> 
@@ -118,13 +118,13 @@ $msg = '<br>';
                       <label>
                         Dagur<span class="req">*</span>
                       </label>
-                      <input type="email" required autocomplete="off"/>
+                      <input type="text" required autocomplete="off" name="Dagur">
                     </div>
                    <div class="field-wrap">
                       <label>
                         Byrja<span class="req">*</span>
                       </label>
-                      <input type="email" required autocomplete="off"/>
+                      <input type="text" required autocomplete="off" name="Byrja">
                     </div>
                    </div>
                    <div class="top-row"> 
@@ -132,16 +132,16 @@ $msg = '<br>';
                           <label>
                         Endir<span class="req">*</span>
                           </label>
-                          <input type="email" required autocomplete="off"/>
+                          <input type="text" required autocomplete="off" name="Endir">
                         </div>
                        <div class="field-wrap">
                           <label>
                            Vettvangur<span class="req">*</span>
                           </label>
-                         <input type="email" required autocomplete="off"/>
+                         <input type="text" required autocomplete="off" name="Vettvangur">
                        </div>
                    </div> 
-                   <div class="top-row"> 
+                    <!--<div class="top-row"> 
                        <div class="field-wrap">
                           <label>
                         Viðskiptavinur<span class="req">*</span>
@@ -154,16 +154,19 @@ $msg = '<br>';
                           </label>
                          <input type="email" required autocomplete="off"/>
                        </div>
-                   </div> 
+                   </div> -->
                   <button type="submit" class="button button-block" name="submit-new">Skrá</button>
                 
             <?php
               echo $msg;
             ?>
+        </form>
            
      </div>
    </div>
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="js/index.js"></script>
+  <!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
   <script src="node_modules/jquery-tabledit/jquery.tabledit.min.js"></script>
   <script>
     function viewData(){

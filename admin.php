@@ -38,7 +38,7 @@ include('connection.php');
           <ul class="nav navbar-nav navbar-right">
             <!--<li class="active"><a href="#">Heima</a></li>
             <li><a href="#about">Stilling</a></li> -->
-            <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>   Útskrá</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>Útskrá</a></li>
           </ul>
       </div>
 </nav>
