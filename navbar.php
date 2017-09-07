@@ -17,6 +17,7 @@
             <li><a href="verkefni.php">Verkefni</a></li>
             <li><a href="tulkur.php">Táknmálstúlkur</a></li>
             <li><a href="vidskiptavinur.php">Viðskiptavinur</a></li>
+            <li><a href="#">Greiðsla</a></li>
             <li><a href="#">Tölfræði</a></li>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span>   Útskrá</a></li>
           </ul>
