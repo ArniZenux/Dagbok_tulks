@@ -2,7 +2,7 @@
   $localhost = "localhost";
   $user      = "root";
   $pass      = "arni";
-  $db_name   = "dbaseTulkurSHH";
+  $db_name   = "shhData";
 
   $conn = mysqli_connect($localhost,$user,$pass,$db_name);
  /*
@@ -11,8 +11,8 @@
   }
   else{
   	echo 'connection';
-  }
+  }*/
   if($conn){
     echo 'Samband';
-  }*/  
+  }  
 ?>

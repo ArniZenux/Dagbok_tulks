@@ -23,8 +23,8 @@ if($page=='view'){
 		   <td><?php echo $row['Heiti'] ?></td>
 		   <td><?php echo $row['Stadur'] ?></td>
        <td><?php echo $row['Dagur'] ?></td>
-       <td><?php echo $row['Timi_byrja'] ?></td>
-       <td><?php echo $row['Timi_endir'] ?></td>
+       <td><?php echo $row['Tima_byrja'] ?></td>
+       <td><?php echo $row['Tima_endir'] ?></td>
        <td><?php echo $row['Vettvangur'] ?></td>
 		  </tr>;
 		<?php

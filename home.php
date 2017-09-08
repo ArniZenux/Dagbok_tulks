@@ -21,7 +21,7 @@ include('navbar_home.php');
       <h1>Dagbók táknmálstúlks</h1>
           <hr> 
               <?php
-                $sql = "SELECT Nafn FROM tblTulkur WHERE Kt = '$Kennitala';";
+                $sql = "SELECT Nafn FROM tblTulkur where tblTulkur.Kt='$Kennitala' ;";
                 $result = mysqli_query($conn,$sql);
                 $row = mysqli_fetch_array($result);
                 echo '<h3>'.$row['Nafn'].'</h3>';
@@ -40,7 +40,7 @@ include('navbar_home.php');
                   </thead>
                 <tbody>
                 <?php
-                    $sql = "SELECT Nr, Heiti, Stadur, Dagur, Timi_byrja, Timi_endir, Vettvangur FROM tblVerkefni WHERE Nr='1';";
+                    $sql = "SELECT tblVerkefni.Nr, tblVerkefni.Heiti, tblVerkefni.Dagur, tblVerkefni.Stadur, tblVerkefni.Tima_byrja, tblVerkefni.Tima_endir, tblVerkefni.Vettvangur FROM tblTulkur, tblVinna, tblVerkefni WHERE tblTulkur.Kt=tblVinna.Kt and tblVinna.Nr=tblVerkefni.Nr and tblTulkur.Kt='$Kennitala' ;";
                     $result = mysqli_query($conn,$sql);
 
                       if(!$result){
