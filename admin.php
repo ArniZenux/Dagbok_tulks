@@ -33,7 +33,7 @@ include('navbar.php');
                       }
 
                       while( $row = mysqli_fetch_array($result) ){
-                        echo '<tr class="info">';
+                        echo '<tr class="active">';
                         echo  '<td scope="row">'.$row[0].'</th>';
                         echo  '<td>'.$row[1].'</td>';
                         echo  '<td>'.$row[2].'</td>';

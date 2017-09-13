@@ -1,8 +1,8 @@
 <?php
 //session_start();
 include('connection.php');
-include('sava_newtulkur.php');
-
+//include('sava_newtulkur.php');
+/*
 $msg = '';
 
 if(isset($_POST['submit-new'])){
@@ -21,7 +21,7 @@ if(isset($_POST['submit-new'])){
      $msg = '<br>Mistók!';
    }
  }
- $conn->close(); 
+ $conn->close(); */
 
 include('header.php');
 ?>
@@ -34,18 +34,37 @@ include('navbar.php');
        <h1>Umsjónarsvæði túlkaþjónustu</h1>
         <hr>
           <h3>Táknmálstúlkur</h3>
-            <table id="tabledit" class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Kennitala</th>
-                  <th>Nafn</th>
-                  <th>Símanúmer</th>
-                  <th>Netfang</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table> 
+               <table class="table">
+                 <thead>
+                   <tr>
+                      <th>Kennitala</th>
+                      <th>Nafn</th>
+                      <th>Símanúmer</th>
+                      <th>Netfang</th>
+                    
+                    </tr>
+                  </thead>
+                <tbody>
+                <?php
+                    $sql = "SELECT tblTulkur.Kt, tblTulkur.Nafn, tblTulkur.Simi, tblTulkur.Netfang FROM tblTulkur ORDER BY tblTulkur.Kt DESC;";
+                    $result = mysqli_query($conn,$sql);
+
+                      if(!$result){
+                        echo 'ekki samband';
+                      }
+
+                      while( $row = mysqli_fetch_array($result) ){
+                        echo '<tr class="active">';
+                        echo  '<td scope="row">'.$row[0].'</td>';
+                        echo  '<td>'.$row[1].'</td>';
+                        echo  '<td>'.$row[2].'</td>';
+                        echo  '<td>'.$row[3].'</td>';
+                        echo '</tr>';
+                       }
+                    $conn->close(); 
+                ?>
+                 </tbody>
+           </table>
            <br>
         <!--<hr>
          <h3>Skrá nýr túlk</h3>
@@ -89,12 +108,11 @@ include('navbar.php');
     </div>
 
   <!-- Javascript - Jquery core --> 
-   <script src="js/index.js"></script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="node_modules/jquery-tabledit/jquery.tabledit.min.js"></script>
   <script>
-    function viewData(){
+  /*  function viewData(){
       $.ajax({
           url:'sava_newtulkur.php?p=view',
           method:'GET'
@@ -112,7 +130,7 @@ include('navbar.php');
                    editable: [[1, 'nickname'], [2, 'firstname'], [3, 'lastname']]
         }
        });
-    }
+    }*/
   </script>
 <?php
   include('footer.php');
