@@ -1,10 +1,8 @@
 <?php
-include('connection.php');
+//include('connection.php');
 include('save_nyttverkefni.php');
 
-$msg = '';
-
-if(isset($_POST['submit-new'])){
+/*if(isset($_POST['submit-new'])){
     $Heiti    = $_POST['Heiti'];
     $Stadur     = $_POST['Stadur'];
     $Dagur      = $_POST['Dagur'];
@@ -23,7 +21,7 @@ if(isset($_POST['submit-new'])){
     }
  }
  $conn->close(); 
-
+*/
 include('header.php'); 
 ?>
 <body onload="viewData()">
@@ -31,13 +29,14 @@ include('header.php');
 <?php
 include('navbar.php');
 ?>  
+<br><br>
   <div class="container">
      <div class="form_home">
         <h1>Umsjónarsvæði túlkaþjónustu</h1>
           <hr>
             <h3>Verkefni</h3>
             <table id="tabledit" class="table table-striped">
-            <thead>
+              <thead>
                 <tr>
                   <th>Númer</th>
                   <th>Heiti</th>
@@ -48,82 +47,15 @@ include('navbar.php');
                   <th>Vettvangur</th>
                 </tr>
               </thead>
-              <tbody>
-              </tbody>
+              <tbody></tbody>
            </table> 
-           <br>
-          <hr>
-            <h3>Nýtt verkefni</h3>
-             <br>
-              <form method="POST" action="">
-                   <div class="top-row">
-                      <div class="field-wrap">
-                        <label>
-                          Heiti<span class="req">*</span>
-                        </label>
-                        <input type="text" required autocomplete="off" name="Heiti">
-                      </div>
-                      <div class="field-wrap">
-                        <label>
-                         Staður<span class="req">*</span>
-                        </label>
-                        <input type="text" required autocomplete="off" name="Stadur">
-                      </div>
-                   </div>
-             
-                  <div class="top-row"> 
-                   <div class="field-wrap">
-                      <label>
-                        Dagur<span class="req">*</span>
-                      </label>
-                      <input type="text" required autocomplete="off" name="Dagur">
-                    </div>
-                   <div class="field-wrap">
-                      <label>
-                        Byrja<span class="req">*</span>
-                      </label>
-                      <input type="text" required autocomplete="off" name="Byrja">
-                    </div>
-                   </div>
-                   <div class="top-row"> 
-                       <div class="field-wrap">
-                          <label>
-                        Endir<span class="req">*</span>
-                          </label>
-                          <input type="text" required autocomplete="off" name="Endir">
-                        </div>
-                       <div class="field-wrap">
-                          <label>
-                           Vettvangur<span class="req">*</span>
-                          </label>
-                         <input type="text" required autocomplete="off" name="Vettvangur">
-                       </div>
-                   </div> 
-                    <!--<div class="top-row"> 
-                       <div class="field-wrap">
-                          <label>
-                        Viðskiptavinur<span class="req">*</span>
-                          </label>
-                          <input type="email" required autocomplete="off"/>
-                        </div>
-                       <div class="field-wrap">
-                          <label>
-                           Greiðsla<span class="req">*</span>
-                          </label>
-                         <input type="email" required autocomplete="off"/>
-                       </div>
-                   </div> -->
-                  <button type="submit" class="button button-block" name="submit-new">Skrá</button>
-                <?php
-                  echo $msg;
-                ?>
-        </form>
      </div>
    </div>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src="js/index.js"></script>
-  <!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
+ 
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="node_modules/jquery-tabledit/jquery.tabledit.min.js"></script>
+  
   <script>
     function viewData(){
       $.ajax({
@@ -134,17 +66,33 @@ include('navbar.php');
         tableData()
       })
     }
-
     function tableData(){
       $('#tabledit').Tabledit({
         url: 'save_nyttverkefni.php',
+        eventType: 'dblclick',
+        editButton: true,
+        deleteButton: true,
         columns: {
-                   identifier: [0, 'Numer'],
-                   editable: [[1, 'Heiti'], [2, 'Staður'], [3, 'Dagur'],[4, 'Byrja'],[5, 'Endir']]
-        }
+              identifier: [0, 'Nr'],
+              editable: [[1, 'Heiti'], [2, 'Stadur'], [3, 'Dagur'],[4, 'Tima_byrja'],[5, 'Tima_endir'],[6,'Vettvangur']]
+        },     
+        onSuccess: function(data, textStatus, jqXHR) {
+            viewData()
+        },
+        onFail: function(jqXHR, textStatus, errorThrown) {
+            console.log('onFail(jqXHR, textStatus, errorThrown)');
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        },
+        onAjax: function(action, serialize) {
+            console.log('onAjax(action, serialize)');
+            console.log(action);
+            console.log(serialize); 
+        } 
        });
     }
-   </script>
+  </script>
 <?php
 include('footer.php');
 ?>

@@ -14,5 +14,8 @@
   }*/
   if($conn){
     echo 'Samband';
-  }  
+  } 
+  else{
+    echo 'Ekki samband';
+  }
 ?>

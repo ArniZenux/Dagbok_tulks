@@ -47,7 +47,7 @@ include('navbar.php');
               </tbody>
             </table> 
            <br>
-        <hr>
+        <!--<hr>
          <h3>Skrá nýr túlk</h3>
            <br>
               <form method="POST" action="">
@@ -84,11 +84,14 @@ include('navbar.php');
                      echo $msg;
                   ?>
             </form>
+          -->
        </div>
     </div>
 
   <!-- Javascript - Jquery core --> 
+   <script src="js/index.js"></script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="node_modules/jquery-tabledit/jquery.tabledit.min.js"></script>
   <script>
     function viewData(){

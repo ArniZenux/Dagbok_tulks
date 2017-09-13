@@ -3,8 +3,8 @@
 }
 
 html {
-  overflow-y: scroll;
-}
+  /*overflow-y: scroll;
+*/}
 
 body {
   background: #c1bdba;
@@ -40,6 +40,23 @@ a:hover {
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+.top-row > div:last-child {
+  margin: 0;
+}
 .tab-group {
   list-style: none;
   padding: 0;
@@ -105,9 +122,10 @@ label {
           transform: translateY(6px);
   left: 13px;
   color: rgba(255, 255, 255, 0.5);
-  -webkit-transition: all 0.25s ease;
+  -webkit-transition: all 4.25s ease;
   transition: all 0.25s ease;
   -webkit-backface-visibility: hidden;
+  
   pointer-events: none;
   font-size: 22px;
 }
@@ -115,7 +133,6 @@ label .req {
   margin: 2px;
   color: #1ab188;
 }
-
 label.active {
   -webkit-transform: translateY(50px);
           transform: translateY(50px);
@@ -125,13 +142,12 @@ label.active {
 label.active .req {
   opacity: 0;
 }
-
 label.highlight {
   color: #ffffff;
 }
 
 input, textarea {
-  font-size: 22px;
+  font-size: 25px;
   display: block;
   width: 100%;
   height: 5%;
@@ -154,25 +170,6 @@ textarea {
   resize: vertical;
 }
 
-.field-wrap {
-  position: relative;
-  margin-bottom: 40px;
-}
-
-.top-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.top-row > div {
-  float: left;
-  width: 48%;
-  margin-right: 4%;
-}
-.top-row > div:last-child {
-  margin: 0;
-}
-
 .button {
   border: 0;
   outline: none;
@@ -184,14 +181,13 @@ textarea {
   letter-spacing: .1em;
   background: #1ab188;
   color: #ffffff;
-  -webkit-transition: all 0.5s ease;
+  /*-webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  -webkit-appearance: none;
+  -webkit-appearance: none;*/
 }
 .button:hover, .button:focus {
   background: #179b77;
 }
-
 .button-block {
   display: block;
   width: 100%;

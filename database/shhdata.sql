@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shhdata`
+-- Database: `SHHData`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `tblnotandi`
 --
 
-CREATE TABLE `tblnotandi` (
+CREATE TABLE `tblNotandi` (
   `Kt` varchar(10) NOT NULL,
   `Notandi` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
@@ -36,7 +36,7 @@ CREATE TABLE `tblnotandi` (
 -- Dumping data for table `tblnotandi`
 --
 
-INSERT INTO `tblnotandi` (`Kt`, `Notandi`, `Password`) VALUES
+INSERT INTO `tblNotandi` (`Kt`, `Notandi`, `Password`) VALUES
 ('1411813359', 'arni', 'arni14'),
 ('2406863359', 'idunn', 'idunn24');
 
@@ -46,7 +46,7 @@ INSERT INTO `tblnotandi` (`Kt`, `Notandi`, `Password`) VALUES
 -- Table structure for table `tbltulkur`
 --
 
-CREATE TABLE `tbltulkur` (
+CREATE TABLE `tblTulkur` (
   `Kt` varchar(10) NOT NULL,
   `Nafn` varchar(255) NOT NULL,
   `Simi` varchar(7) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE `tbltulkur` (
 -- Dumping data for table `tbltulkur`
 --
 
-INSERT INTO `tbltulkur` (`Kt`, `Nafn`, `Simi`, `Netfang`) VALUES
+INSERT INTO `tblTulkur` (`Kt`, `Nafn`, `Simi`, `Netfang`) VALUES
 ('1411813359', 'Árni Ingi Jóhannesson', '8240245', 'arnijoha@hi.is'),
 ('2406863359', 'Iðunn Ása Óladóttir', '7750245', 'idunnasa@shh.is');
 
@@ -67,7 +67,7 @@ INSERT INTO `tbltulkur` (`Kt`, `Nafn`, `Simi`, `Netfang`) VALUES
 -- Table structure for table `tblverkefni`
 --
 
-CREATE TABLE `tblverkefni` (
+CREATE TABLE `tblVerkefni` (
   `Nr` int(11) NOT NULL,
   `Heiti` text,
   `Stadur` text,
@@ -81,7 +81,7 @@ CREATE TABLE `tblverkefni` (
 -- Dumping data for table `tblverkefni`
 --
 
-INSERT INTO `tblverkefni` (`Nr`, `Heiti`, `Stadur`, `Dagur`, `Tima_byrja`, `Tima_endir`, `Vettvangur`) VALUES
+INSERT INTO `tblVerkefni` (`Nr`, `Heiti`, `Stadur`, `Dagur`, `Tima_byrja`, `Tima_endir`, `Vettvangur`) VALUES
 (1, 'Rauðás ehf', 'Síðamúli 7', '23 júni', '14:00', '14:40', 'Atvinnumál'),
 (2, 'Sveppó ehf', 'Ármúli 7', '23 september', '11:00', '12:40', 'Atvinnumál'),
 (3, 'Rst Net', 'HFJ', '23 Febrúar', '10:00', '12:00', 'Vesenmál');
@@ -92,7 +92,7 @@ INSERT INTO `tblverkefni` (`Nr`, `Heiti`, `Stadur`, `Dagur`, `Tima_byrja`, `Tima
 -- Table structure for table `tblvinna`
 --
 
-CREATE TABLE `tblvinna` (
+CREATE TABLE `tblVinna` (
   `Nr` int(11) NOT NULL,
   `Kt` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -101,7 +101,7 @@ CREATE TABLE `tblvinna` (
 -- Dumping data for table `tblvinna`
 --
 
-INSERT INTO `tblvinna` (`Nr`, `Kt`) VALUES
+INSERT INTO `tblVinna` (`Nr`, `Kt`) VALUES
 (1, '1411813359'),
 (2, '1411813359'),
 (3, '2406863359');
@@ -113,19 +113,19 @@ INSERT INTO `tblvinna` (`Nr`, `Kt`) VALUES
 --
 -- Indexes for table `tbltulkur`
 --
-ALTER TABLE `tbltulkur`
+ALTER TABLE `tblTulkur`
   ADD PRIMARY KEY (`Kt`);
 
 --
 -- Indexes for table `tblverkefni`
 --
-ALTER TABLE `tblverkefni`
+ALTER TABLE `tblVerkefni`
   ADD PRIMARY KEY (`Nr`);
 
 --
 -- Indexes for table `tblvinna`
 --
-ALTER TABLE `tblvinna`
+ALTER TABLE `tblVinna`
   ADD PRIMARY KEY (`Nr`),
   ADD KEY `Kt` (`Kt`);
 
@@ -136,12 +136,12 @@ ALTER TABLE `tblvinna`
 --
 -- AUTO_INCREMENT for table `tblverkefni`
 --
-ALTER TABLE `tblverkefni`
+ALTER TABLE `tblVerkefni`
   MODIFY `Nr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tblvinna`
 --
-ALTER TABLE `tblvinna`
+ALTER TABLE `tblVinna`
   MODIFY `Nr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
@@ -150,14 +150,14 @@ ALTER TABLE `tblvinna`
 --
 -- Constraints for table `tblverkefni`
 --
-ALTER TABLE `tblverkefni`
-  ADD CONSTRAINT `tblverkefni_ibfk_1` FOREIGN KEY (`Nr`) REFERENCES `tblvinna` (`Nr`);
+ALTER TABLE `tblVerkefni`
+  ADD CONSTRAINT `tblVerkefni_ibfk_1` FOREIGN KEY (`Nr`) REFERENCES `tblVinna` (`Nr`);
 
 --
 -- Constraints for table `tblvinna`
 --
-ALTER TABLE `tblvinna`
-  ADD CONSTRAINT `tblvinna_ibfk_1` FOREIGN KEY (`Kt`) REFERENCES `tbltulkur` (`Kt`);
+ALTER TABLE `tblVinna`
+  ADD CONSTRAINT `tblVinna_ibfk_1` FOREIGN KEY (`Kt`) REFERENCES `tblTulkur` (`Kt`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

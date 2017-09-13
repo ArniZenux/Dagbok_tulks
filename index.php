@@ -74,44 +74,12 @@ if(isset($_POST['submit-in-fanney'])){
           <h1>Dagbók táknmálstúlks</h1>
           
           <form action="" method="POST">
-          <!--
-          <div class="top-row">
-            <div class="field-wrap">
-              <label>
-                Notandi<span class="req">*</span>
-              </label>
-              <input type="text" required autocomplete="off" />
-            </div>
-        
-            <div class="field-wrap">
-              <label>
-                Last Name<span class="req">*</span>
-              </label>
-              <input type="text"required autocomplete="off"/>
-            </div>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Set A Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-          -->
-          
-          <div class="field-wrap">
+           <div class="field-wrap">
             <label>
               Notandi<span class="req">*</span>
             </label>
             <input type="type" required autocomplete="off" name="username"/>
-          </div>
+           </div>
           
           <div class="field-wrap">
             <label>
